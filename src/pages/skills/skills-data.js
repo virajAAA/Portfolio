@@ -28,9 +28,9 @@ export const skills = {
       imgAltText: "JavaScript",
       imgSrc: L_JAVASCRIPT,
       skillName: "JavaScript",
-    }
-  ], 
-  frontend1: [ 
+    },
+  ],
+  frontend1: [
     {
       link: "https://reactjs.org/",
       imgAltText: "React JS",
@@ -51,34 +51,29 @@ export const skills = {
       imgSrc: L_REACT_BOOTSTRAP,
       skillName: "React Bootstrap",
     },
-
   ],
   frontend2: [
-   
     {
       link: "https://getbootstrap.com/",
       imgAltText: "Bootstrap",
       imgSrc: L_BOOTSTRAP,
       skillName: "Bootstrap",
     },
-
     {
-      link: "https://wordpress.com/create/?utm_source=bing&utm_campaign=bing_wpcom_search_brand_desktop_row_en&utm_medium=paid_search&keyword=wordpress&creative=76759747017204&campaignid=282011434&adgroupid=1228154574804979&matchtype=e&device=c&network=s&targetid=kwd-76759730299059&msclkid=572159f16fa41a1eff30068a91840dcb",
+      link:
+        "https://wordpress.com/create/?utm_source=bing&utm_campaign=bing_wpcom_search_brand_desktop_row_en&utm_medium=paid_search&keyword=wordpress&creative=76759747017204&campaignid=282011434&adgroupid=1228154574804979&matchtype=e&device=c&network=s&targetid=kwd-76759730299059&msclkid=572159f16fa41a1eff30068a91840dcb",
       imgAltText: "Wordpress",
       imgSrc: L_WORDPRESS,
       skillName: "WordPress",
-      }, 
+    },
   ],
 
   frontend3: [
-   
-   
-
     {
       link: "https://git-scm.com/",
       imgAltText: "GIT",
       imgSrc: L_GIT,
       skillName: "GIT",
-      }, 
+    },
   ],
 };

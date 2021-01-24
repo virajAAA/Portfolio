@@ -1,69 +1,79 @@
 import React from "react";
-import MyNavbar from "./components/my-navbar/my-navbar.component";
-import MyCarousal from "./components/my-carousal/my-carousal.component";
-import MyTitleMessage from "./components/title-message/title-message.component";
-import About from "./pages/about/about.component";
-import Skills from "./pages/skills/skills.component";
 import Container from "react-bootstrap/Container";
-import Fade from "react-reveal/Fade";
-import Slide from "react-reveal/Slide";
-import ContactForm from "./pages/contact-form/contact-form.component";
+import { Fade, Slide } from "react-reveal";
 import { Parallax } from "react-parallax";
-import FooterPanel from "./components/footer/footer.component";
+import { About, Skills, ContactForm } from "./pages";
+import { Footer, Carousal, Navbar, TitleMessage } from "./components";
+import styled from "styled-components";
 
-import "./App.css";
+const Hr = styled.hr`
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+`;
+
+const AppWrapper = styled.div`
+  position: relative;
+`;
+
+const ContainerWrapper = styled(Container)`
+  width: 80%;
+  background-color: transparent;
+  position: relative;
+  z-index: 9;
+`;
 
 const App = () => {
   return (
-    <div className="App" style={{ position: "relative" }}>
-      <MyCarousal />
-      <MyNavbar />
-      <MyTitleMessage />
+    <AppWrapper>
+      <Carousal />
+      <Navbar />
+      <TitleMessage />
 
-      <div>
-        <Parallax
-          blur={1}
-          bgImage={require("./assets/img/parallex/background.webp")}
-          bgImageAlt="bagroundimg"
-          strength={100}
-        >
-          <div>
-            <Container className="container-box ">
-              <Fade duration={100}>
-                <About />
-              </Fade>
-            </Container>
-          </div>
-        </Parallax>
-      </div>
-      <Container className="container-box ">
+      <Parallax
+        blur={1}
+        bgImage={require("./assets/img/parallex/background.webp")}
+        bgImageAlt="bagroundimg"
+        strength={100}
+      >
+        <ContainerWrapper>
+          <Fade duration={100}>
+            <About />
+          </Fade>
+        </ContainerWrapper>
+      </Parallax>
+
+      <ContainerWrapper>
         <Slide bottom duration={100}>
-          <hr />
+          <Hr />
           <Skills />
         </Slide>
-      </Container>
+      </ContainerWrapper>
       <div>
-        <Container className="container-box ">
+        <ContainerWrapper>
           <Fade duration={500}>
-            <hr />
+            <Hr />
           </Fade>
-        </Container>
+        </ContainerWrapper>
       </div>
-      <Container className="container-box ">
-        <Slide bottom duration={500}>
-        
-        </Slide>
-      </Container>
-      <Container className="container-box ">
+      <ContainerWrapper>
+        <Slide bottom duration={500}></Slide>
+      </ContainerWrapper>
+
+      <ContainerWrapper>
         <Fade duration={500}>
-          
           <ContactForm />
         </Fade>
-      </Container>
+      </ContainerWrapper>
 
-      <hr />
-      <FooterPanel />
-    </div>
+      <Hr />
+      <Footer />
+    </AppWrapper>
   );
 };
 
