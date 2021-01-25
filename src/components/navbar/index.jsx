@@ -3,6 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import LogoSrc from "../../assets/icons/logo.png";
 import styled, { keyframes } from "styled-components";
 
+
 const Logo = styled.img`
   width: 25%;
   border-radius: 10px;

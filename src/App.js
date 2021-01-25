@@ -67,12 +67,12 @@ const App = () => {
 
       <ContainerWrapper>
         <Fade duration={500}>
-          <ContactForm />
+          <ContactForm/> 
         </Fade>
       </ContainerWrapper>
 
       <Hr />
-      <Footer />
+      <Footer  />
     </AppWrapper>
   );
 };

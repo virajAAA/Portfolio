@@ -3,7 +3,7 @@ import { Jumbotron, Button, Col, Row } from "react-bootstrap";
 import styled from "styled-components";
 
 const StyledJumbotron = styled(Jumbotron)`
-  background-image: url("../../assets/img/background/background.webp");
+  background-image: url('./src/assets/img/background/background.webp');
   background-size: cover;
   background-repeat: no-repeat;
 `;
