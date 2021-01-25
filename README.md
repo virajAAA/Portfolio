@@ -1,4 +1,5 @@
-## Portfolio 
+## Portfolio
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -28,18 +29,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://firebase.google.com/docs/hosting?authuser=0) for more information.
 
-# firebase installation
- 
- # `firebase login`
- # `firebase init`
- # `npm run build`
- # `firebase deploy`
+## firebase installation
 
+### `firebase login`
 
- ## Url
- https://virajawati-portfolio.web.app/
+### `firebase init`
 
- 
+### `npm run build`
 
+### `firebase deploy`
 
+## Url
 
+https://virajawati-portfolio.web.app/
