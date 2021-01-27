@@ -6,7 +6,7 @@ import { theme } from "./themes/theme";
 import GlobalStyle from "./themes/globalStyles";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme} >
     <GlobalStyle />
     <App />
   </ThemeProvider>,

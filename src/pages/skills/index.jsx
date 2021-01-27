@@ -29,16 +29,20 @@ const StyledH1 = styled.h1`
   font-size: 3em;
   font-weight: 500;
   color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 `;
 
 const StyledCardText = styled(Card.Text)`
   justify-items: center;
 `;
 
+
 const Skills = () => {
   return (
     <div className="pt-3 pb-3" id="skills">
-      <StyledH1 className="text-center pb-4">TECH SKILLS</StyledH1>
+      <StyledH1 >TECH SKILLS</StyledH1>
       <CardDeck>
         <Row className="d-flex justify-content-around">
           {/* Frontend */}

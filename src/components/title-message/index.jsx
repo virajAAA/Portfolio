@@ -1,6 +1,8 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
+import { skills } from "../../pages/skills/skills-data";
+
 
 const TitleMessageWrapper = styled.h1`
   position: absolute;
@@ -39,13 +41,13 @@ const TitleMessage = () => (
           Hi, I am
           <br />
           <span>
-            <strong>Viraj Awati</strong>
+            <strong>{skills.textEffectDetails.nameText}</strong>
           </span>
         </div>
         <div className="sub">
           <Typewriter
             options={{
-              strings: ["Web Developer"],
+              strings: [skills.textEffectDetails.designationText],
               autoStart: true,
               loop: true,
               delay: 50,

@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import LogoSrc from "../../assets/icons/logo.png";
+// import LogoSrc from "../../assets/icons/logo.png";
 import styled, { keyframes } from "styled-components";
+import { skills } from "../../pages/skills/skills-data";
 
 
 const Logo = styled.img`
@@ -32,7 +33,7 @@ const MyNavbar = () => {
       <NavbarWrapper fixed="top" variant="dark" expand="md">
         <div>
           <Navbar.Brand href="#home">
-            <Logo src={LogoSrc} alt="logo" />
+            <Logo src={skills.navbarDetails.imgSrc} alt="logo" />
           </Navbar.Brand>
         </div>
         <div>

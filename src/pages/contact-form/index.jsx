@@ -8,7 +8,12 @@ const StyledJumbotron = styled(Jumbotron)`
   background-repeat: no-repeat;
 `;
 
+
+
+
 const ContactForm = () => {
+
+  
   return (
     <div id="contact">
       <h1 className="pt-3 text-center font-details-b pb-3">CONTACT ME</h1>
@@ -16,8 +21,9 @@ const ContactForm = () => {
         <Row>
           <Col className="d-flex justify-content-center flex-wrap">
             <div className="m-2">
+        
               <a
-                href="mailto:virajawati9@gmail.com"
+                href="mailto:"
                 target="_blank"
                 rel="noopener noreferrer"
               >
