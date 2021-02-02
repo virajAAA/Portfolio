@@ -4,6 +4,7 @@ import { Fade, Slide } from "react-reveal";
 import { Parallax } from "react-parallax";
 import { About, Skills, ContactForm } from "./pages";
 import { Footer, Carousal, Navbar, TitleMessage } from "./components";
+import portfolioData from "./mock/data.json";
 import styled from "styled-components";
 
 const Hr = styled.hr`
@@ -29,11 +30,12 @@ const ContainerWrapper = styled(Container)`
 `;
 
 const App = () => {
+  console.log("portfolioData>>>>>", portfolioData);
   return (
     <AppWrapper>
-      <Carousal />
-      <Navbar />
-      <TitleMessage />
+      <Carousal carouselData={portfolioData.carousel} />
+      <Navbar navabarData={portfolioData.navbar} />
+      <TitleMessage typeWriterName = {portfolioData.headerDetails} />
 
       <Parallax
         blur={1}
@@ -43,7 +45,7 @@ const App = () => {
       >
         <ContainerWrapper>
           <Fade duration={100}>
-            <About />
+            <About aboutMe={portfolioData.aboutDetails}/>
           </Fade>
         </ContainerWrapper>
       </Parallax>
@@ -51,7 +53,7 @@ const App = () => {
       <ContainerWrapper>
         <Slide bottom duration={100}>
           <Hr />
-          <Skills />
+          <Skills skillsData={portfolioData.skillSets} />
         </Slide>
       </ContainerWrapper>
       <div>
@@ -67,12 +69,12 @@ const App = () => {
 
       <ContainerWrapper>
         <Fade duration={500}>
-          <ContactForm/> 
+          <ContactForm contactInformation={portfolioData.contactDetails}/>
         </Fade>
       </ContainerWrapper>
 
       <Hr />
-      <Footer  />
+      <Footer footerDetails={portfolioData.footerData}/>
     </AppWrapper>
   );
 };

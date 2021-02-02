@@ -1,0 +1,278 @@
+diff --git a/src/App.js b/src/App.js
+index c7a8386..7a8c53b 100644
+--- a/src/App.js
++++ b/src/App.js
+@@ -4,6 +4,7 @@ import { Fade, Slide } from "react-reveal";
+ import { Parallax } from "react-parallax";
+ import { About, Skills, ContactForm } from "./pages";
+ import { Footer, Carousal, Navbar, TitleMessage } from "./components";
++import portfolioData from "./mock/data.json";
+ import styled from "styled-components";
+ 
+ const Hr = styled.hr`
+@@ -29,6 +30,7 @@ const ContainerWrapper = styled(Container)`
+ `;
+ 
+ const App = () => {
++  console.log("portfolioData>>>>>", portfolioData);
+   return (
+     <AppWrapper>
+       <Carousal />
+@@ -51,7 +53,7 @@ const App = () => {
+       <ContainerWrapper>
+         <Slide bottom duration={100}>
+           <Hr />
+-          <Skills />
++          <Skills skillsData={portfolioData.skillSets} />
+         </Slide>
+       </ContainerWrapper>
+       <div>
+@@ -67,12 +69,12 @@ const App = () => {
+ 
+       <ContainerWrapper>
+         <Fade duration={500}>
+-          <ContactForm/> 
++          <ContactForm />
+         </Fade>
+       </ContainerWrapper>
+ 
+       <Hr />
+-      <Footer  />
++      <Footer />
+     </AppWrapper>
+   );
+ };
+diff --git a/src/mock/data.json b/src/mock/data.json
+new file mode 100644
+index 0000000..8661d0a
+--- /dev/null
++++ b/src/mock/data.json
+@@ -0,0 +1,85 @@
++{
++  "navbar": {
++    "link": "https://en.wikipedia.org/wiki/HTML5",
++    "imgAltText": "logo",
++    "imgSrc": "../assets/img/skills/logo.png"
++  },
++  "carousel": [
++    {
++      "img": "../src/assets/img/skills/slide1.jpg"
++    },
++    {
++      "img": "../src/assets/img/skills/slide2.jpg"
++    },
++    {
++      "img": "../src/assets/img/skills/slide3.jpg"
++    }
++  ],
++  "headerDetails": {
++    "name": "Bhagyesh Kulkarni",
++    "designation": "Software Tester| Automation"
++  },
++  "contactDetails": {
++    "email": "bhagyesh707@gmail.com",
++    "linkedIn": "Software Tester| Automation"
++  },
++  "aboutDetails": {
++    "profilePic": "../src/assets/img/skills/profile.png",
++    "introduction": "A passionate programmer, born and brought up in Ahmednagar, India. i am a software Tester with Automation  and also API testing knowledge",
++    "educationInfo": "In 2017 I I successfully completed my Masters with a specialization in 'Computer Science'.  ",
++    "currentStatus": "Currently working as a FreeLancer Automation Tester.",
++    "experience": "I have 2 years of experience in Software Testing.",
++    "capabilities": "Always keen to learn and adapt to emerging technologies, putting dedicated efforts, and build better products."
++  },
++  "skillSets": [
++    {
++      "area": "development",
++      "id": "1232sadfljkn",
++      "skills": [
++        {
++          "link": "https://en.wikipedia.org/wiki/HTML5",
++          "imgAltText": "HTML 5",
++          "imgSrc": "../assets/img/skills/html-5.svg",
++          "skillName": "HTML5"
++        },
++        {
++          "link": "https://medium.com/beginners-guide-to-mobile-web-development/whats-new-in-css-3-dcd7fa6122e1",
++          "imgAltText": "CSS 3",
++          "imgSrc": "../assets/img/skills/css3.svg",
++          "skillName": "CSS3"
++        },
++
++        {
++          "link": "https://docs.oracle.com/javase/tutorial/",
++          "imgAltText": "JAVA",
++          "imgSrc": "../assets/img/skills/java.svg",
++          "skillName": "Java"
++        }
++      ]
++    },
++    {
++      "area": "development",
++      "id": "1232",
++      "skills": [
++        {
++          "link": "https://en.wikipedia.org/wiki/HTML5",
++          "imgAltText": "HTML 5 asd",
++          "imgSrc": "../assets/img/skills/html-5.svg",
++          "skillName": "HTML5"
++        },
++        {
++          "link": "https://medium.com/beginners-guide-to-mobile-web-development/whats-new-in-css-3-dcd7fa6122e1",
++          "imgAltText": "CSS 3 asdfg",
++          "imgSrc": "../assets/img/skills/css3.svg",
++          "skillName": "CSS3"
++        },
++        {
++          "link": "https://docs.oracle.com/javase/tutorial/",
++          "imgAltText": "JAVA dsgas",
++          "imgSrc": "../assets/img/skills/java.svg",
++          "skillName": "Java"
++        }
++      ]
++    }
++  ]
++}
+diff --git a/src/pages/skills/index.jsx b/src/pages/skills/index.jsx
+index 17afceb..73c2e8d 100644
+--- a/src/pages/skills/index.jsx
++++ b/src/pages/skills/index.jsx
+@@ -38,23 +38,21 @@ const StyledCardText = styled(Card.Text)`
+   justify-items: center;
+ `;
+ 
+-
+-const Skills = () => {
+-  return (
+-    <div className="pt-3 pb-3" id="skills">
+-      <StyledH1 >TECH SKILLS</StyledH1>
+-      <CardDeck>
+-        <Row className="d-flex justify-content-around">
+-          {/* Frontend */}
+-          <Col md={4}>
++const Skills = ({ skillsData }) => (
++  <div className="pt-3 pb-3" id="skills">
++    <StyledH1>TECH SKILLS</StyledH1>
++    <CardDeck>
++      <Row className="d-flex justify-content-around">
++        {skillsData.map((skillData) => (
++          <Col md={4} key={skillData.id}>
+             <CardWrapper className="mt-2 mb-2">
+               <Card.Body>
+                 {/* Frontend */}
+                 <CardTitle className="text-center"></CardTitle>
+                 <hr />
+                 <Card.Text className="card-text d-flex justify-content-start flex-column">
+-                  {skills.frontend.map((skill, index) => (
+-                    <span className="p-2" key={index}>
++                  {skillData.skills.map((skill, index) => (
++                    <span className="p-2" key={index} key={skill.skillName}>
+                       <a
+                         className="text-dark text-decoration-none"
+                         href={skill.link}
+@@ -75,100 +73,10 @@ const Skills = () => {
+               </Card.Body>
+             </CardWrapper>
+           </Col>
+-
+-          <Col md={4}>
+-            <CardWrapper className="mt-2 mb-2">
+-              <Card.Body>
+-                {/* Frontend */}
+-                <CardTitle className="text-center"></CardTitle>
+-                <hr />
+-                <Card.Text className="card-text d-flex justify-content-start flex-column">
+-                  {skills.frontend1.map((skill, index) => (
+-                    <span className="p-2" key={index}>
+-                      <a
+-                        className="text-dark text-decoration-none"
+-                        href={skill.link}
+-                        target="_blank"
+-                        rel="noopener noreferrer"
+-                      >
+-                        <StyledImage
+-                          src={skill.imgSrc}
+-                          alt={skill.imgAltText}
+-                          rounded
+-                          className=" m-1"
+-                        />
+-                        {skill.skillName}
+-                      </a>
+-                    </span>
+-                  ))}
+-                </Card.Text>
+-              </Card.Body>
+-            </CardWrapper>
+-          </Col>
+-
+-          <Col md={4}>
+-            <CardWrapper className="mt-2 mb-2">
+-              <Card.Body>
+-                {/* Frontend */}
+-                <CardTitle className="text-center"></CardTitle>
+-                <hr />
+-                <Card.Text className="card-text d-flex justify-content-start flex-column">
+-                  {skills.frontend2.map((skill, index) => (
+-                    <span className="p-2" key={index}>
+-                      <a
+-                        className="text-dark text-decoration-none"
+-                        href={skill.link}
+-                        target="_blank"
+-                        rel="noopener noreferrer"
+-                      >
+-                        <StyledImage
+-                          src={skill.imgSrc}
+-                          alt={skill.imgAltText}
+-                          rounded
+-                          className="m-1"
+-                        />
+-                        {skill.skillName}
+-                      </a>
+-                    </span>
+-                  ))}
+-                </Card.Text>
+-              </Card.Body>
+-            </CardWrapper>
+-          </Col>
+-
+-          <Col md={4}>
+-            <CardWrapper className="mt-2 mb-2">
+-              <Card.Body>
+-                {/* Frontend */}
+-                <CardTitle className="text-center"></CardTitle>
+-                <hr />
+-                <StyledCardText className="card-text d-flex justify-content-start flex-column">
+-                  {skills.frontend3.map((skill, index) => (
+-                    <span className="p-2" key={index}>
+-                      <a
+-                        className="text-dark text-decoration-none"
+-                        href={skill.link}
+-                        target="_blank"
+-                        rel="noopener noreferrer"
+-                      >
+-                        <StyledImage
+-                          src={skill.imgSrc}
+-                          alt={skill.imgAltText}
+-                          rounded
+-                          className="m-1"
+-                        />
+-                        {skill.skillName}
+-                      </a>
+-                    </span>
+-                  ))}
+-                </StyledCardText>
+-              </Card.Body>
+-            </CardWrapper>
+-          </Col>
+-        </Row>
+-      </CardDeck>
+-    </div>
+-  );
+-};
++        ))}
++      </Row>
++    </CardDeck>
++  </div>
++);
+ 
+ export default Skills;

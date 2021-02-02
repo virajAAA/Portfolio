@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { skills } from "../../pages/skills/skills-data"
 
 const FooterWrapper = styled.div`
   background-color: #101018f8;
@@ -12,10 +11,10 @@ const FooterWrapper = styled.div`
   text-align: center;
 `;
 
-const Footer = () => {
+const Footer = ({ footerDetails }) => {
   return (
     <FooterWrapper>
-      © {skills.textEffectDetails.nameText} &nbsp; {new Date().getFullYear()}
+      ©{footerDetails.name} &nbsp; {new Date().getFullYear()}
     </FooterWrapper>
   );
 };

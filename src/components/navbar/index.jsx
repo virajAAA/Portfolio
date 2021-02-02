@@ -2,8 +2,6 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 // import LogoSrc from "../../assets/icons/logo.png";
 import styled, { keyframes } from "styled-components";
-import { skills } from "../../pages/skills/skills-data";
-
 
 const Logo = styled.img`
   width: 25%;
@@ -27,13 +25,14 @@ const NavbarWrapper = styled(Navbar)`
   animation: ${moveDownKeyframes} 0.5s ease-in-out;
 `;
 
-const MyNavbar = () => {
+const MyNavbar = ({ navabarData }) => {
+  console.log(navabarData.imgSrc);
   return (
-    <div>
+    <div id="home">
       <NavbarWrapper fixed="top" variant="dark" expand="md">
         <div>
           <Navbar.Brand href="#home">
-            <Logo src={skills.navbarDetails.imgSrc} alt="logo" />
+            <Logo src={navabarData.imgSrc} alt="logo" />
           </Navbar.Brand>
         </div>
         <div>

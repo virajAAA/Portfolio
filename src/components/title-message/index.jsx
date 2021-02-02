@@ -1,7 +1,7 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
-import { skills } from "../../pages/skills/skills-data";
+
 
 
 const TitleMessageWrapper = styled.h1`
@@ -33,7 +33,7 @@ const TitleMessageWrapper = styled.h1`
   }
 `;
 
-const TitleMessage = () => (
+const TitleMessage = ({typeWriterName}) => (
   <TitleMessageWrapper>
     <div className="titleMessage">
       <div className="heading">
@@ -41,13 +41,13 @@ const TitleMessage = () => (
           Hi, I am
           <br />
           <span>
-            <strong>{skills.textEffectDetails.nameText}</strong>
+            <strong>{typeWriterName.name}</strong>
           </span>
         </div>
         <div className="sub">
           <Typewriter
             options={{
-              strings: [skills.textEffectDetails.designationText],
+              strings: [typeWriterName.designation],
               autoStart: true,
               loop: true,
               delay: 50,
