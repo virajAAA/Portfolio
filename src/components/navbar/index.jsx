@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-// import LogoSrc from "../../assets/icons/logo.png";
 import styled, { keyframes } from "styled-components";
 
 const Logo = styled.img`
@@ -26,9 +25,8 @@ const NavbarWrapper = styled(Navbar)`
 `;
 
 const MyNavbar = ({ navabarData }) => {
-  console.log(navabarData.imgSrc);
   return (
-    <div id="home">
+    <div>
       <NavbarWrapper fixed="top" variant="dark" expand="md">
         <div>
           <Navbar.Brand href="#home">

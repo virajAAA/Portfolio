@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Image, Col, Button } from "react-bootstrap";
 import styled from "styled-components";
-// import Profile from "../../assets/img/profile/profile.webp";
 
 const AboutWrapper = styled.div`
   background-color: transparent;
@@ -17,7 +16,6 @@ const DetailsRow = styled(Row)`
 `;
 
 const About = ({ aboutMe }) => {
-  console.log(">>>>>>>>>", aboutMe);
   return (
     <div id="about">
       <AboutWrapper>

@@ -8,9 +8,9 @@ const StyledJumbotron = styled(Jumbotron)`
   background-repeat: no-repeat;
 `;
 
-const ContactForm = () => {
+const ContactForm = ({contactInformation}) => {
+  
 
-  let email = "bhagyesh707@gmail.com"
   return (
     <div id="contact">
       <h1 className="pt-3 text-center font-details-b pb-3">CONTACT ME</h1>
@@ -20,11 +20,11 @@ const ContactForm = () => {
             <div className="m-2">
         
               <a
-               
+                
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline-danger" title="bhagyesh707@gmail.com">
+                <Button variant="outline-danger" title= {contactInformation.email}>
                   <i className="fas fa-envelope-square"></i> Email Me
                 </Button>
               </a>

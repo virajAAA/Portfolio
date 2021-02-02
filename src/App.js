@@ -30,12 +30,11 @@ const ContainerWrapper = styled(Container)`
 `;
 
 const App = () => {
-  console.log("portfolioData>>>>>", portfolioData);
   return (
     <AppWrapper>
       <Carousal carouselData={portfolioData.carousel} />
       <Navbar navabarData={portfolioData.navbar} />
-      <TitleMessage typeWriterName = {portfolioData.headerDetails} />
+      <TitleMessage typeWriterName={portfolioData.headerDetails} />
 
       <Parallax
         blur={1}
@@ -45,7 +44,7 @@ const App = () => {
       >
         <ContainerWrapper>
           <Fade duration={100}>
-            <About aboutMe={portfolioData.aboutDetails}/>
+            <About aboutMe={portfolioData.aboutDetails} />
           </Fade>
         </ContainerWrapper>
       </Parallax>
@@ -69,12 +68,12 @@ const App = () => {
 
       <ContainerWrapper>
         <Fade duration={500}>
-          <ContactForm contactInformation={portfolioData.contactDetails}/>
+          <ContactForm contactInformation={portfolioData.contactDetails} />
         </Fade>
       </ContainerWrapper>
 
       <Hr />
-      <Footer footerDetails={portfolioData.footerData}/>
+      <Footer footerDetails={portfolioData.footerData} />
     </AppWrapper>
   );
 };
